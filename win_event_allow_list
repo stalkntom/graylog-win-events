@@ -1,0 +1,10 @@
+rule "win_event_allow_list"
+when
+    has_field("EventID") AND
+    to_string($message.EventID) == "4624" OR
+    to_string($message.EventID) == "4634" //OR
+then
+    route_to_stream("win_event_allowed");
+end
+//route_to_stream(id: "id");
+//route_to_stream(name: "name");
