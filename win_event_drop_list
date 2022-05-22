@@ -1,0 +1,10 @@
+rule "win_event_drop_list"
+when
+    has_field("EventID") AND
+    to_string($message.EventID) != "4624" AND
+    to_string($message.EventID) != "4634" //AND
+then
+    route_to_stream("win_event_dropped");
+end
+//route_to_stream(id: "id");
+//route_to_stream(name: "name");
