@@ -1,0 +1,6 @@
+rule "set_source_module_name"
+when 
+    has_field("EventID")
+then
+    set_field("SourceModuleName","eventlog");
+end
